@@ -1,7 +1,15 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import { unstable_serialize } from "swr";
+
+export const runtime = 'edge'
 
 export default function Home() {
+  const key = ['test']
+  console.log(unstable_serialize(key))
+  console.log(key instanceof Array)
+  console.log(key.constructor == Array)
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
